@@ -4,7 +4,7 @@ from collections import deque
 def main():
     """
     Given an array of integer numbers, find the maximum sum
-    of the elements in a contiguous subarray having a length between a and b.
+    of the elements in a contiguous subarray having a length between a and b
     """
 
     n, a, b = map(int, input().split())

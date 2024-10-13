@@ -28,7 +28,7 @@ def kth_statistic(array, left, right, k):
 
 
 def main():
-    n = int(sys.stdin.readline())
+    n, q = map(int, sys.stdin.readline().split())
     a, b = map(int, sys.stdin.readline().split())
 
     # build random array
@@ -41,12 +41,8 @@ def main():
         y = cur >> 8
         array.append(((x << 8) ^ y) % 4294967296)
 
-    kth_statistic(array, 0, n - 1, (n - 1) // 2)
-    y = array[(n - 1) // 2]
-    dist = 0
-    for coord in array:
-        dist += (abs(y - coord))
-    print(dist)
+    kth_statistic(array, 0, n - 1, q - 1)
+    print(array[q - 1])
 
 
 if __name__ == "__main__":
