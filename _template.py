@@ -2,7 +2,7 @@ import sys
 
 
 def main():
-    pass
+    sys.stdin.readline()
 
 
 if __name__ == "__main__":
