@@ -1,4 +1,4 @@
-def merge(intervals):
+def merge(intervals: list):
     events = []
     for interval in intervals:
         events.append((interval[0], 0))
@@ -7,7 +7,7 @@ def merge(intervals):
 
     n = len(events)
     non_intersecting = []
-    start, end = -1, -1
+    start = -1
     opened = 0
     for i in range(len(events)):
         event = events[i]
@@ -19,8 +19,7 @@ def merge(intervals):
             opened -= 1
             if opened <= 0:
                 if i + 1 < n and events[i + 1][0] != event[0] or i + 1 == n:
-                    end = event[0]
-                    non_intersecting.append([start, end])
+                    non_intersecting.append([start, event[0]])
 
     return non_intersecting
 
