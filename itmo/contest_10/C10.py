@@ -26,28 +26,30 @@ class DisjointSet:
         self.set[b][1] += self.set[a][1]
 
 
-def Kruskal(n, edges):
-    edges.sort(key=lambda x: x[2])
-    dis_set = DisjointSet(n)
-    mst_weight = 0  # minimum spanning tree weight
-
-    for edge in edges:
-        a, b = edge[0], edge[1]
-
-        if dis_set.leader(a) != dis_set.leader(b):
-            dis_set.union(a, b)
-            mst_weight += edge[2]
-
-    return mst_weight
-
-
-def main():
-    n, m = map(int, sys.stdin.readline().split())
-    edges = []
+def main() -> None:
+    n, m, k = map(int, sys.stdin.readline().split())
     for _ in range(m):
-        edges.append(tuple(map(int, sys.stdin.readline().split())))
+        sys.stdin.readline()
+    events = []
+    for _ in range(k):
+        typ, a, b = sys.stdin.readline().split()
+        events.append((typ, int(a), int(b)))
 
-    print(Kruskal(n, edges))
+    dis_set = DisjointSet(n)
+    events.reverse()
+    answers = []
+    for typ, a, b in events:
+        if typ == "ask":
+            if dis_set.leader(a) == dis_set.leader(b):
+                answers.append("YES")
+            else:
+                answers.append("NO")
+        else:
+            dis_set.union(a, b)
+
+    answers.reverse()
+    for answer in answers:
+        print(answer)
 
 
 if __name__ == "__main__":
