@@ -3,6 +3,8 @@ def dfs(graph, colors, answer, v):
     for u in graph[v]:
         if colors[u] == "white":
             dfs(graph, colors, answer, u)
+        elif colors[u] == "black":
+            continue
         else:
             return
     colors[v] = "black"
