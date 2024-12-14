@@ -21,12 +21,13 @@ def dfs(s: tuple[int, int], t: tuple[int, int], field: list[str], visited: list[
                 stack.append((new_c, new_r))
 
 
-def traceback(s: tuple[int, int], t: tuple[int, int], parents: dict) -> list:
+def traceback(t: tuple[int, int], parents: dict) -> list:
     path = []
     curr = t
     while curr is not None:
         path.append(curr)
         curr = parents[curr]
+
     path.reverse()
     return path
 
@@ -46,7 +47,7 @@ def main() -> None:
     del visited
     if parents:
         print("YES")
-        for dot in traceback(s, t, parents):
+        for dot in traceback(t, parents):
             print(*dot)
     else:
         print("NO")
