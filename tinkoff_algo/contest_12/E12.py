@@ -2,7 +2,7 @@ def power(n, p, mod):
     if p == 1:
         return n
     elif p % 2 == 0:
-        return power(n, p // 2, mod) ** 2 % mod
+        return power(n, p >> 1, mod) ** 2 % mod
     else:
         return power(n, p - 1, mod) * n % mod
 

@@ -1,16 +1,17 @@
-def Euclid(a, b):
+def gcd(a: int, b: int) -> int:  # НОД
     while b > 0:
-        a %= b
-        a, b = b, a
+        a, b = b, a % b
 
     return a
 
 
-def main():
+def lcm(a: int, b: int) -> int:  # НОК
+    return (a // gcd(a, b)) * b
+
+
+def main() -> None:
     n, k = map(int, input().split())
-    gcd = Euclid(n, k)
-    lcm = n * k // gcd
-    print(lcm)
+    print(lcm(n, k))
 
 
 if __name__ == '__main__':
