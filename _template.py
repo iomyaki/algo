@@ -1,9 +1,9 @@
 import sys
 
 
-def main() -> None:
+def main():
     sys.stdin.readline()
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
