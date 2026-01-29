@@ -7,5 +7,5 @@ def flatten_dict(dct, prefix=""):
             yield new_prefix, value
 
 
-test_dct = {"a": 1, "b": {"c": 2, "d": 3}}
-print(list(flatten_dict(test_dct)))
+test_dict = {"a": 1, "b": {"c": 2, "d": 3}, "e": {"f": {"g": 4, "h": 5}}}
+print(dict(flatten_dict(test_dict)))
